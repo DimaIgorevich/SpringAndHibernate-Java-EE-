@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17.09.2016 21:33:58 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.datacentre.model.pojo.RegistrationCard" table="registration_card" catalog="medicalDB" optimistic-lock="version">
+        <id name="mobile" type="string">
+            <column name="mobile" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="fullName" type="string">
+            <column name="full_name" length="100" not-null="true" />
+        </property>
+        <property name="age" type="int">
+            <column name="age" not-null="true" />
+        </property>
+        <property name="dateRegistration" type="timestamp">
+            <column name="date_registration" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
