@@ -11,6 +11,15 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+
+<script>
+    function errorMsg(message){
+        if(message){
+            alert(message);
+        }
+    }
+ </script>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,6 +28,9 @@
         <title>MEDICAL DATA PATIENTS</title>
     </head>
     <body>
+        <script>
+            errorMsg(<c:out value="${errorMessage}"></c:out>);
+        </script>
         <div id="container">
             <div id="block-up">
                 <nav class = "navigation-top-bar">
@@ -51,7 +63,7 @@
                                 <a class="close-btn" href="javascript:void(0)" onclick = "document.getElementById('envelope').style.display='none';document.getElementById('fade').style.display='none'">Закрыть</a>
                                 <h1 class="title">Add new patients</h1>
                                 <form:form method="post" action="cards.htm" commandName="card">
-                                    Ф.И.О.: <form:input path="fullName"/><br>
+                                    Ф.И.О.: <form:input path="fullName" name="name"/><br>
                                     Телефон(мобильный): <form:input path="mobile"/><br>
                                     Возраст: <form:input path="age"/><br>
                                     <input type="submit" name="action" value="Add" class="send-message">

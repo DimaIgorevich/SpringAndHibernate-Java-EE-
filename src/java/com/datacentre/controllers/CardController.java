@@ -38,8 +38,12 @@ public class CardController {
     public String modelAction(@ModelAttribute("card") RegistrationCard card, BindingResult result, @RequestParam String action ,ModelMap model){
         switch(action.toLowerCase()){
             case "add":{
+                int listSize = cardService.getAllRegistrationCard().size();
                 cardService.add(card);
-                model.put("fullName","");
+                if(listSize == cardService.getAllRegistrationCard().size()){
+                    model.put("errorMessage", "Error message");
+                }
+                //model.put("fullName","");
             }
                 break;
             case "search":
